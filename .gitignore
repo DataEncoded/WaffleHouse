@@ -1,0 +1,11 @@
+# Project place file
+/WaffleHouse.rbxlx
+/build.rbxl
+/build.rbxlx
+
+# Package files
+/Packages
+
+# Roblox Studio lock files
+/*.rbxlx.lock
+/*.rbxl.lock
