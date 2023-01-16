@@ -2,7 +2,7 @@ local Knit = require(game:GetService("ReplicatedStorage").Packages.knit)
 
 local CollectionService = game:GetService("CollectionService")
 
-local DamageService = Knit.CreateService({ Name = "DamageService", Client = { dealDamage = Knit.CreateSignal() } })
+local DamageService = Knit.CreateService({ Name = "DamageService", Client = { dealDamage = Knit.CreateSignal(), block = Knit.CreateSignal() } })
 
 function DamageService:KnitStart()
 	local PlayerService = Knit.GetService("PlayerService")
