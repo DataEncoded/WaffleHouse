@@ -10,8 +10,13 @@ function PlayerService:KnitInit()
 	Players.PlayerAdded:Connect(function(player)
 		self.players[player] = {}
 		self.players[player]["punchCooldown"] = false
+		self.players[player]["blocking"] = false
+		self.players[player]["blockTick"] = -1
 		self.players[player]["characterConnection"] = player.CharacterAdded:Connect(function(character)
 			self.players[player]["character"] = character
+			self.players[player]["punchCooldown"] = false
+			self.players[player]["blocking"] = false
+			self.players[player]["blockTick"] = -1
 		end)
 	end)
 

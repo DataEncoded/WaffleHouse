@@ -106,4 +106,8 @@ function FightingController:watchHitbox(attachment, seconds)
 	end)
 end
 
+function FightingController:block()
+	DamageService.block:Fire()
+end
+
 return FightingController

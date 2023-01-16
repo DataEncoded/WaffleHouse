@@ -34,9 +34,44 @@ function DamageService:KnitStart()
 		end
 	end
 
+	function DamageService.Block(player)
+		player = PlayerService:GetPlayer(player)
+
+		if player:IsSome() then
+			player = player:Unwrap()
+			if
+				player.character
+				and player.character:FindFirstChild("Humanoid")
+				and player.character.Humanoid.Health > 0
+				and not player.blocking
+			then
+				player.blocking = true
+			end
+		end
+	end
+
+	function DamageService.Unblock(player)
+		player = PlayerService:GetPlayer(player)
+
+		if player:IsSome() then
+			player = player:Unwrap()
+			if
+				player.character
+				and player.character:FindFirstChild("Humanoid")
+				and player.character.Humanoid.Health > 0
+				and player.blocking
+			then
+				player.blocking = false
+			end
+		end
+	end
+
 	DamageService.Client.dealDamage:Connect(function(player, hit, critical)
 		DamageService.DealDamage(player, hit, critical)
 	end)
-end
 
+	DamageService.Client.block:Connect(function(player) 
+		DamageService.Block(player)
+	end)
+end
 return DamageService
